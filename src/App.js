@@ -1,40 +1,55 @@
 import React from "react";
+import "./App.css";
+import RecipeCard from "./components/RecipeCard/RecipeCard";
 
 function App() {
-  const myName = "Владислав";
-
-  const imageUrl =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmd1rk8JVagwnBmpHYmx7qfcWu5RuUuuFkOA&s";
-  const imageDescription = "Зображення";
-
-  const favoriteSite = {
-    name: "youtube",
-    url: "https://www.youtube.com/",
-  };
-
-  const number1 = 5;
-  const number2 = 10;
-  const sum = number1 + number2;
-
-  const colors = ["Червоний", "Синій", "Зелений"];
+  const recipes = [
+    {
+      Image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCrb9lxOr0AUBl6muGyfwGjzryOqz7KesoNQ&s",
+      title: "Smoked salmon burger",
+      time: "20 min",
+      servings: "5 servings",
+      calories: "210 calories",
+      difficulty: ["Easy", "Medium", "Fixed"],
+    },
+    {
+      Image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbior8damh5OrkSj9qsqE0da5IucAx7n0Sqw&s",
+      title: "Tomatoes With Creamy Feta",
+      time: "15 min",
+      servings: "3 servings",
+      calories: "600 calories",
+      difficulty: ["Easy", "Medium", "Fixed"],
+    },
+    {
+      Image:
+        "https://mccormick.widen.net/content/uvjk9yurf1/original/spicy_potato_salad_637390546085236844_800x800.jpg",
+      title: "Spicy potato salad",
+      time: "30 min",
+      servings: "2 servings",
+      calories: "320 calories",
+      difficulty: ["Easy", "Medium", "Fixed"],
+    },
+    {
+      Image:
+        "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe.jpg",
+      title: "Chicken Biryani",
+      time: "40 min",
+      servings: "4 servings",
+      calories: "700 calories",
+      difficulty: ["Easy", "Medium", "Fixed"],
+    },
+  ];
 
   return (
-    <div className="App">
-      <h1>{myName}</h1>
-      <p>Ласкаво просимо до нашого сайту!</p>
-      <img src={imageUrl} alt={imageDescription} />
-      <p>
-        Перейдіть на{" "}
-        <a href={favoriteSite.url} target="_blank" rel="noopener noreferrer">
-          {favoriteSite.name}
-        </a>
-      </p>
-      <p>Сума чисел: {sum}</p>
-      <ul>
-        {colors.map((color, index) => (
-          <li key={index}>{color}</li>
+    <div className="app">
+      <h1 className="app-title">Recipe Cards</h1>
+      <div className="recipes-container">
+        {recipes.map((recipe, index) => (
+          <RecipeCard key={index} recipe={recipe} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
