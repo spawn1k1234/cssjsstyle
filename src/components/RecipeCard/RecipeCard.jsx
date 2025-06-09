@@ -4,7 +4,7 @@ import "./RecipeCard.css";
 const RecipeCard = ({ recipe }) => {
   return (
     <div className="recipe-card">
-      {/* Добавляем изображение, если оно есть */}
+    
       {recipe.Image && (
         <img src={recipe.Image} alt={recipe.title} className="recipe-image" />
       )}
